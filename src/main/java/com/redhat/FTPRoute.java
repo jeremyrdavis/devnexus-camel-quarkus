@@ -18,7 +18,8 @@ public class FTPRoute extends RouteBuilder {
                 .log(LoggingLevel.INFO, "processing file ${file:name}")
                 .split(body().convertToString().tokenize("\n"))
                 .setHeader(Exchange.FILE_NAME, body())
-                .to("file://" + DESTINATION_FOLER)
-                .log(LoggingLevel.INFO, "written locally");
+                .to("kafka:greetings")
+                .log(LoggingLevel.INFO, "written to Kafka");
+
     }
 }
