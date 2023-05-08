@@ -14,7 +14,7 @@ public class FTPRoute extends RouteBuilder {
     @Override
     public void configure() {
 
-        from("ftp://devnexusftpuser@40.90.237.221/?username=devnexusftpuser&password=DevNexus23IsAwesome!")
+        from("ftp://devnexusftpuser@?username=devnexusftpuser&password=DevNexus23IsAwesome!")
                 .log(LoggingLevel.INFO, "processing file ${file:name}")
                 .split(body().convertToString().tokenize("\n"))
                 .setHeader(Exchange.FILE_NAME, body())
